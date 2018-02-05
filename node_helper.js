@@ -1,7 +1,8 @@
 /* Magic Mirror
  * Module: MMM-Traffic
  *
- * By Sam Lewis https://github.com/SamLewis0602
+ * Originally Developed By Sam Lewis https://github.com/SamLewis0602
+ * By Jeremy Percival https://github.com/jer78
  * MIT Licensed.
  */
 
@@ -12,7 +13,7 @@ var allTime = true;
 
 module.exports = NodeHelper.create({
   start: function () {
-    console.log('MMM-Traffic helper started ...');
+    console.log('MMM-TrafficFromCalendar helper started ...');
   },
 
   getCommute: function(api_url) {
