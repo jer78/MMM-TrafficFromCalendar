@@ -3,11 +3,12 @@
 /* Magic Mirror
  * Module: MMM-Traffic
  *
- * By Sam Lewis https://github.com/SamLewis0602
+ * Originally Developed By Sam Lewis https://github.com/SamLewis0602
+ * Forked by Jeremy Percival https://github.com/jer78
  * MIT Licensed.
  */
 
-Module.register('MMM-Traffic', {
+Module.register('MMM-TrafficFromCalendar', {
 
     defaults: {
         api_key: '',
