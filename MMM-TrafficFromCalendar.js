@@ -1,10 +1,10 @@
 /* global Module */
 
 /* Magic Mirror
- * Module: MMM-Traffic
+ * Module: MMM-TrafficFromCalendar
  *
  * Originally Developed By Sam Lewis https://github.com/SamLewis0602
- * Forked by Jeremy Percival https://github.com/jer78
+ * Modified by Jeremy Percival https://github.com/jer78
  * MIT Licensed.
  */
 
@@ -45,7 +45,7 @@ Module.register('MMM-TrafficFromCalendar', {
 
     start: function() {
         Log.info('Starting module: ' + this.name);
-        if (this.data.classes === 'MMM-Traffic') {
+        if (this.data.classes === 'MMM-TrafficFromCalendar') {
           this.data.classes = 'bright medium';
         }
         this.loaded = false;
@@ -167,26 +167,7 @@ Module.register('MMM-TrafficFromCalendar', {
 
     getTodaysDestination: function() {
         var todays_destination = "";
-        switch (new Date().getDay()) {
-          case 1:
-            todays_destination = this.config.mon_destination;
-            break;
-          case 2:
-            todays_destination = this.config.tues_destination;
-            break;
-          case 3:
-            todays_destination = this.config.wed_destination; 
-            break;
-          case 4:
-            todays_destination = this.config.thurs_destination;
-            break;
-          case 5:
-            todays_destination = this.config.fri_destination;
-            break;
-          default:
-            //to handle Sat and Sun (GoogleAPI may raise error if no destination set)   
-            todays_destination = this.config.destination; 
-        }
+        var todays_destination = payload.location[0];
 
         if(todays_destination === ""){ //if no weekday destinations defined in config.js, set to default
             todays_destination = this.config.destination;           
