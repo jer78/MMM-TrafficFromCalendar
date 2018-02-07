@@ -1,8 +1,8 @@
 /* Magic Mirror
- * Module: MMM-Traffic
+ * Module: MMM-TrafficFromCalendar
  *
  * Originally Developed By Sam Lewis https://github.com/SamLewis0602
- * By Jeremy Percival https://github.com/jer78
+ * Modified By Jeremy Percival https://github.com/jer78
  * MIT Licensed.
  */
 
@@ -144,6 +144,15 @@ module.exports = NodeHelper.create({
       this.getCommute(payload.url);
     } else if (notification === 'LEAVE_BY') {
       this.getTiming(payload.url, payload.arrival);
+    }
+  },
+
+  //Subclass socketNotificationReceived received from Calendar
+  socketNotificationReceived: function(notification, payload) {
+    this.setLocationConfig(payload.location[0]);
+
+    if (notification === 'CALENDAR_EVENTS') {
+      this.getCommute(payload.location[0]);
     }
   }
 
